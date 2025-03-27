@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import {
   ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
+  // SignInButton,
+  // SignUpButton,
+  // SignedOut,
+  // SignedIn,
+  // UserButton,
 } from "@clerk/nextjs";
 
 import { ModalProvider } from "@/providers/modal-provider";
@@ -40,14 +40,17 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <header className="flex justify-end items-center p-4 gap-4 h-16">
-            <SignedOut>
-              <SignInButton />
-              <SignUpButton />
-            </SignedOut>
-            <SignedIn>
+          <header className="flex justify-end items-center ">
+            {/* <div className="p-2 gap-4">
+              <SignedOut>
+                <SignInButton />
+                <SignUpButton />
+              </SignedOut>
+            </div> */}
+
+            {/* <SignedIn>
               <UserButton />
-            </SignedIn>
+            </SignedIn> */}
           </header>
           <ToasterProvider />
           <ModalProvider />
