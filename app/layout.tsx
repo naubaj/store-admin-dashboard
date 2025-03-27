@@ -8,6 +8,9 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+
+import { ModalProvider } from "@/providers/modal-provider";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -45,6 +48,7 @@ export default function RootLayout({
               <UserButton />
             </SignedIn>
           </header>
+          <ModalProvider />
           {children}
         </body>
       </html>
