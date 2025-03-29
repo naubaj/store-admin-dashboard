@@ -62,7 +62,7 @@ React.HtmlHTMLAttributes<HTMLElement>) {
           className={cn(
             "text-sm font-medium transition-colors hover:text-primary",
             route.active
-              ? "text-black dark:text-white"
+              ? "font-semibold text-black dark:text-white"
               : "text-muted-foreground"
           )}
         >

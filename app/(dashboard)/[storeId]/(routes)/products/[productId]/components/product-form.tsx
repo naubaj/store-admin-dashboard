@@ -169,9 +169,6 @@ export const ProductForm: React.FC<ProductFromProps> = ({
                   <ImageUpload
                     value={field.value.map((image) => image.url)}
                     disabled={loading}
-                    // onChange={(url) =>
-                    //   field.onChange([...field.value, { url }])
-                    // }
                     onChange={(url) => {
                       const fieldvalue = [...field.value, { url }];
                       field.onChange((field.value = fieldvalue));
@@ -187,7 +184,7 @@ export const ProductForm: React.FC<ProductFromProps> = ({
               </FormItem>
             )}
           />
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 gap-8">
             <FormField
               control={form.control}
               name="name"
@@ -223,6 +220,7 @@ export const ProductForm: React.FC<ProductFromProps> = ({
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name="categoryId"
@@ -319,6 +317,7 @@ export const ProductForm: React.FC<ProductFromProps> = ({
                 </FormItem>
               )}
             />
+            <div></div>
             <FormField
               control={form.control}
               name="isFeatured"
@@ -353,19 +352,19 @@ export const ProductForm: React.FC<ProductFromProps> = ({
                   <div className="space-y-1 leading-none">
                     <FormLabel>Archived</FormLabel>
                     <FormDescription>
-                      The product will appear anywhere in the store.
+                      The product will not appear anywhere in the store.
                     </FormDescription>
                   </div>
                 </FormItem>
               )}
             />
           </div>
+
           <Button disabled={loading} className="ml-auto" type="submit">
             {action}
           </Button>
         </form>
       </Form>
-      {/* <Separator /> */}
     </>
   );
 };
