@@ -10,17 +10,11 @@ import { getStockCount } from "@/actions/get-stock-count";
 import { Overview } from "@/components/overview";
 import { getGraphRevenue } from "@/actions/get-graph-revenue";
 
-// import prismadb from "@/lib/prismadb";
-
-interface DashboardPageProps {
-  params: { storeId: string };
-}
-
-const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
-  // const { storeId } = await params;
-  // const store = await prismadb.store.findFirst({
-  //   where: { id: storeId },
-  // });
+const DashboardPage = async ({
+  params,
+}: {
+  params: Promise<{ storeId: string }>;
+}) => {
   const { storeId } = await params;
   const totalRevenue = await getTotalRevenue(storeId);
   const salesCount = await getSalesCount(storeId);

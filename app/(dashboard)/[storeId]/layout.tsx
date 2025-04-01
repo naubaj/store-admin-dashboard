@@ -4,13 +4,15 @@ import { redirect } from "next/navigation";
 import prismadb from "@/lib/prismadb";
 import NavBar from "@/components/navbar";
 
+interface DashboardType {
+  children: React.ReactNode;
+  params: Promise<{ storeId: string }>;
+}
+
 export default async function DashboardLayout({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: { storeId: string };
-}) {
+}: DashboardType) {
   const { userId } = await auth();
   // asynchronous access of `params.id`.
   const { storeId } = await params;
