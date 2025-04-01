@@ -11,6 +11,7 @@ import {
 
 import { ModalProvider } from "@/providers/modal-provider";
 import { ToasterProvider } from "@/providers/toast-provider";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 import "./globals.css";
 
@@ -36,25 +37,32 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <header className="flex justify-end items-center ">
-            {/* <div className="p-2 gap-4">
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <header className="flex justify-end items-center ">
+              {/* <div className="p-2 gap-4">
               <SignedOut>
                 <SignInButton />
                 <SignUpButton />
               </SignedOut>
             </div> */}
 
-            {/* <SignedIn>
+              {/* <SignedIn>
               <UserButton />
             </SignedIn> */}
-          </header>
-          <ToasterProvider />
-          <ModalProvider />
-          {children}
+            </header>
+            <ToasterProvider />
+            <ModalProvider />
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
