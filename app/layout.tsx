@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import {
-  ClerkProvider,
-  // SignInButton,
-  // SignUpButton,
-  // SignedOut,
-  // SignedIn,
-  // UserButton,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 
 import { ModalProvider } from "@/providers/modal-provider";
 import { ToasterProvider } from "@/providers/toast-provider";
@@ -36,7 +29,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        layout: {
+          unsafe_disableDevelopmentModeWarnings: true,
+        },
+      }}
+    >
       <html lang="en" suppressHydrationWarning>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -47,18 +46,6 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <header className="flex justify-end items-center ">
-              {/* <div className="p-2 gap-4">
-              <SignedOut>
-                <SignInButton />
-                <SignUpButton />
-              </SignedOut>
-            </div> */}
-
-              {/* <SignedIn>
-              <UserButton />
-            </SignedIn> */}
-            </header>
             <ToasterProvider />
             <ModalProvider />
             {children}
