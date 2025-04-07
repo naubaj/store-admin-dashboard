@@ -5,11 +5,11 @@ import { ProductClient } from "./components/client";
 import { ProductColumn } from "./components/columns";
 import { formatter } from "@/lib/utils";
 
-const ProductsPage = async ({
+export default async function ProductsPage({
   params,
 }: {
   params: Promise<{ storeId: string }>;
-}) => {
+}) {
   const { storeId } = await params;
 
   const products = await prismadb.product.findMany({
@@ -37,6 +37,4 @@ const ProductsPage = async ({
       </div>
     </div>
   );
-};
-
-export default ProductsPage;
+}

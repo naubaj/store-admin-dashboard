@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alert-modal";
-import ImageUpload from "@/components/ui/image-upload";
+import { ImageUpload } from "@/components/ui/image-upload";
 
 const formSchema = z.object({
   label: z.string().min(1),
@@ -32,13 +32,11 @@ const formSchema = z.object({
 
 type BillboardFormValues = z.infer<typeof formSchema>;
 
-interface BillboardFormProps {
+type BillboardFormProps = {
   initialData: Billboard | null;
-}
+};
 
-export const BillboardForm: React.FC<BillboardFormProps> = ({
-  initialData,
-}) => {
+export function BillboardForm({ initialData }: BillboardFormProps) {
   const params = useParams();
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -172,4 +170,4 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
       </Form>
     </>
   );
-};
+}

@@ -2,12 +2,12 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 import prismadb from "@/lib/prismadb";
-import NavBar from "@/components/navbar";
+import { NavBar } from "@/components/navbar";
 
-interface DashboardType {
+type DashboardType = {
   children: React.ReactNode;
   params: Promise<{ storeId: string }>;
-}
+};
 
 export default async function DashboardLayout({
   children,

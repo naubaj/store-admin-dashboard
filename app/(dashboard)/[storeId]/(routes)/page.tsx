@@ -10,11 +10,11 @@ import { getStockCount } from "@/actions/get-stock-count";
 import { Overview } from "@/components/overview";
 import { getGraphRevenue } from "@/actions/get-graph-revenue";
 
-const DashboardPage = async ({
+export default async function DashboardPage({
   params,
 }: {
   params: Promise<{ storeId: string }>;
-}) => {
+}) {
   const { storeId } = await params;
   const totalRevenue = await getTotalRevenue(storeId);
   const salesCount = await getSalesCount(storeId);
@@ -72,6 +72,4 @@ const DashboardPage = async ({
       </div>
     </div>
   );
-};
-
-export default DashboardPage;
+}

@@ -4,15 +4,12 @@ import { useOrigin } from "@/hooks/use-origin";
 import { useParams } from "next/navigation";
 import { ApiAlert } from "@/components/ui/api-alert";
 
-interface ApiListProps {
+type ApiListProps = {
   entityName: string;
   entityIdName: string;
-}
+};
 
-export const ApiList: React.FC<ApiListProps> = ({
-  entityName,
-  entityIdName,
-}) => {
+export function ApiList({ entityName, entityIdName }: ApiListProps) {
   const params = useParams();
   const origin = useOrigin();
 
@@ -47,4 +44,4 @@ export const ApiList: React.FC<ApiListProps> = ({
       />
     </>
   );
-};
+}

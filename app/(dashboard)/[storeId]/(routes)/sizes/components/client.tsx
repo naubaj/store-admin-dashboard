@@ -9,11 +9,11 @@ import { SizeColumn, columns } from "./columns";
 import { DataTable } from "@/components/ui/data-table";
 import { ApiList } from "@/components/ui/api-list";
 
-interface SizesClientProps {
+type SizesClientProps = {
   data: SizeColumn[];
-}
+};
 
-export const SizesClient: React.FC<SizesClientProps> = ({ data }) => {
+export function SizesClient({ data }: SizesClientProps) {
   const router = useRouter();
   const params = useParams();
   return (
@@ -35,4 +35,4 @@ export const SizesClient: React.FC<SizesClientProps> = ({ data }) => {
       <ApiList entityName="sizes" entityIdName="sizeId" />
     </>
   );
-};
+}

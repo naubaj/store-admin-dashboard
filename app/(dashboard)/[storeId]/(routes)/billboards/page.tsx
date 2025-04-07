@@ -4,11 +4,11 @@ import prismadb from "@/lib/prismadb";
 import { BillboardClient } from "./components/client";
 import { BillboardColumn } from "./components/columns";
 
-const BillboardsPage = async ({
+export default async function BillboardsPage({
   params,
 }: {
   params: Promise<{ storeId: string }>;
-}) => {
+}) {
   const { storeId } = await params;
 
   const billboards = await prismadb.billboard.findMany({
@@ -29,6 +29,4 @@ const BillboardsPage = async ({
       </div>
     </div>
   );
-};
-
-export default BillboardsPage;
+}

@@ -2,12 +2,12 @@ import { UserButton } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 import { MainNav } from "@/components/main-dash";
-import StoreSwitcher from "@/components/store-switcher";
+import { StoreSwitcher } from "@/components/store-switcher";
 import { auth } from "@clerk/nextjs/server";
 import prismadb from "@/lib/prismadb";
 import { ThemeToggle } from "@/components/theme-toggle";
 
-const NavBar = async () => {
+export async function NavBar() {
   const { userId } = await auth();
 
   if (!userId) {
@@ -28,6 +28,4 @@ const NavBar = async () => {
       </div>
     </div>
   );
-};
-
-export default NavBar;
+}

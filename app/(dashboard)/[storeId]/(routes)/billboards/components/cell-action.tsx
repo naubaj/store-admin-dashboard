@@ -19,11 +19,11 @@ import { BillboardColumn } from "./columns";
 
 import { AlertModal } from "@/components/modals/alert-modal";
 
-interface CellActionProps {
+type CellActionProps = {
   data: BillboardColumn;
-}
+};
 
-export const CellAction: React.FC<CellActionProps> = ({ data }) => {
+export function CellAction({ data }: CellActionProps) {
   const router = useRouter();
   const params = useParams();
 
@@ -86,4 +86,4 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
       </DropdownMenu>
     </>
   );
-};
+}

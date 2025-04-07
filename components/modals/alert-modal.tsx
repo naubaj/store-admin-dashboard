@@ -4,19 +4,19 @@ import { useEffect, useState } from "react";
 import { Modal } from "@/components/ui/modal";
 import { Button } from "@/components/ui/button";
 
-interface AlertModalProps {
+type AlertModalProps = {
   isOpen: boolean;
   onClose: () => void;
   onConfirm: () => void;
   loading: boolean;
-}
+};
 
-export const AlertModal: React.FC<AlertModalProps> = ({
+export function AlertModal({
   isOpen,
   onClose,
   onConfirm,
   loading,
-}) => {
+}: AlertModalProps) {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -46,4 +46,4 @@ export const AlertModal: React.FC<AlertModalProps> = ({
       </div>
     </Modal>
   );
-};
+}

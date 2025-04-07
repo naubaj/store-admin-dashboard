@@ -29,6 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // Disable development tag -> production requires own domain
     <ClerkProvider
       appearance={{
         layout: {

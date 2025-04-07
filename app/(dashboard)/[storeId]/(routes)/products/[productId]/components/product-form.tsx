@@ -23,7 +23,7 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import { AlertModal } from "@/components/modals/alert-modal";
-import ImageUpload from "@/components/ui/image-upload";
+import { ImageUpload } from "@/components/ui/image-upload";
 import {
   Select,
   SelectContent,
@@ -33,7 +33,7 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 
-interface ProductFromProps {
+type ProductFromProps = {
   initialData:
     | (Product & {
         images: Image[];
@@ -42,7 +42,7 @@ interface ProductFromProps {
   categories: Category[];
   colours: Colour[];
   sizes: Size[];
-}
+};
 
 const formSchema = z.object({
   name: z.string().min(1),
@@ -57,12 +57,12 @@ const formSchema = z.object({
 
 type ProductFormValues = z.infer<typeof formSchema>;
 
-export const ProductForm: React.FC<ProductFromProps> = ({
+export function ProductForm({
   initialData,
   categories,
   colours,
   sizes,
-}) => {
+}: ProductFromProps) {
   const params = useParams();
   const router = useRouter();
 
@@ -367,4 +367,4 @@ export const ProductForm: React.FC<ProductFromProps> = ({
       </Form>
     </>
   );
-};
+}

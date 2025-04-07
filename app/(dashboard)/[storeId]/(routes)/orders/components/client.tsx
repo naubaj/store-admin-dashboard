@@ -5,11 +5,11 @@ import { Separator } from "@/components/ui/separator";
 import { OrderColumn, columns } from "./columns";
 import { DataTable } from "@/components/ui/data-table";
 
-interface OrderClientProps {
+type OrderClientProps = {
   data: OrderColumn[];
-}
+};
 
-export const OrderClient: React.FC<OrderClientProps> = ({ data }) => {
+export function OrderClient({ data }: OrderClientProps) {
   return (
     <>
       <Heading
@@ -20,4 +20,4 @@ export const OrderClient: React.FC<OrderClientProps> = ({ data }) => {
       <DataTable columns={columns} data={data} searchKey="products" />
     </>
   );
-};
+}

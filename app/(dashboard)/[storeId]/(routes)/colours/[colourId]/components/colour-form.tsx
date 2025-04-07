@@ -34,11 +34,11 @@ const formSchema = z.object({
 
 type ColourFormValues = z.infer<typeof formSchema>;
 
-interface ColourFormProps {
+type ColourFormProps = {
   initialData: Colour | null;
-}
+};
 
-export const ColourForm: React.FC<ColourFormProps> = ({ initialData }) => {
+export function ColourForm({ initialData }: ColourFormProps) {
   const params = useParams();
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -170,4 +170,4 @@ export const ColourForm: React.FC<ColourFormProps> = ({ initialData }) => {
       </Form>
     </>
   );
-};
+}

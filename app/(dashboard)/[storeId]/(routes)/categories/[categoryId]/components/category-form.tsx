@@ -38,15 +38,12 @@ const formSchema = z.object({
 
 type CategoryFormValues = z.infer<typeof formSchema>;
 
-interface CategoryFormProps {
+type CategoryFormProps = {
   initialData: Category | null;
   billboards: Billboard[];
-}
+};
 
-export const CategoryForm: React.FC<CategoryFormProps> = ({
-  initialData,
-  billboards,
-}) => {
+export function CategoryForm({ initialData, billboards }: CategoryFormProps) {
   const params = useParams();
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -190,4 +187,4 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
       </Form>
     </>
   );
-};
+}

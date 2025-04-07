@@ -9,11 +9,11 @@ import { ColourColumn, columns } from "./columns";
 import { DataTable } from "@/components/ui/data-table";
 import { ApiList } from "@/components/ui/api-list";
 
-interface ColoursClientProps {
+type ColoursClientProps = {
   data: ColourColumn[];
-}
+};
 
-export const ColoursClient: React.FC<ColoursClientProps> = ({ data }) => {
+export function ColoursClient({ data }: ColoursClientProps) {
   const router = useRouter();
   const params = useParams();
   return (
@@ -35,4 +35,4 @@ export const ColoursClient: React.FC<ColoursClientProps> = ({ data }) => {
       <ApiList entityName="colours" entityIdName="colourId" />
     </>
   );
-};
+}

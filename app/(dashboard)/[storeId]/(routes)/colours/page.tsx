@@ -4,11 +4,11 @@ import prismadb from "@/lib/prismadb";
 import { ColoursClient } from "./components/client";
 import { ColourColumn } from "./components/columns";
 
-const ColoursPage = async ({
+export default async function ColoursPage({
   params,
 }: {
   params: Promise<{ storeId: string }>;
-}) => {
+}) {
   const { storeId } = await params;
 
   const colours = await prismadb.colour.findMany({
@@ -30,6 +30,4 @@ const ColoursPage = async ({
       </div>
     </div>
   );
-};
-
-export default ColoursPage;
+}

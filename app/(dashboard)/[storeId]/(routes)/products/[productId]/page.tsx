@@ -1,11 +1,11 @@
 import prismadb from "@/lib/prismadb";
 import { ProductForm } from "./components/product-form";
 
-const ProductPage = async ({
+export default async function ProductPage({
   params,
 }: {
   params: Promise<{ productId: string; storeId: string }>;
-}) => {
+}) {
   const { productId, storeId } = await params;
   const product = await prismadb.product.findUnique({
     where: {
@@ -46,6 +46,4 @@ const ProductPage = async ({
       </div>
     </div>
   );
-};
-
-export default ProductPage;
+}
