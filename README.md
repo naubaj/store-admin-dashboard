@@ -1,10 +1,10 @@
-# E-Commerce Admin Dashboard
+# Store Admin Dashboard
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Full Stack E-Commerce Store - Next.js App Router, React, Tailwind Prism, MySQL
+Full Stack Store Admin Dashboard - Next.js App Router, React, Tailwind Prism, MySQL
 
-Includes: Clerk (Login), Stripe (Payments), Cloudinary (Image bucket), Neon (Database), NextJS, Tailwind, Shadcn
+Includes: Clerk (Login), Stripe (Payments), Cloudinary (Image host), Neon (Database), NextJS, Tailwind, Shadcn
 
 ## Getting Started
 
@@ -14,34 +14,52 @@ Install dependencies:
 npm install
 ```
 
-Update `.env` file
+Create an `.env` file containing:
 
-```
-FRONTEND_STORE_URL=http://localhost:3001
+`FRONTEND_STORE_URL`
 
-# Clerk
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY= // Key from Clerk
-CLERK_SECRET_KEY= // Secret key from Clerk
+- Domain for the front end
+- For local instances it would be `http://localhost:3001` for example
 
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/
-NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/
+`NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`
 
-# Cloudinary // Image Hosting service
-NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME= // name of your bucket
-NEXT_PUBLIC_CLOUDINARY_API_KEY= // API key for Cloudinary
-CLOUDINARY_API_SECRET= // secret key for Cloudinary
+- Key from Clerk as this project uses Clerk to handle Sign Up / Login
 
-# Stripe
-STRIPE_API_KEY= // API key for Stripe
-STRIPE_WEBHOOK_SECRET= // Webhook secret for Stripe
+`CLERK_SECRET_KEY`
 
+- Secret Key from Clerk
 
-# NEON
-DATABASE_URL= // Database URL
+`NEXT_PUBLIC_CLERK_SIGN_IN_URL`, `NEXT_PUBLIC_CLERK_SIGN_UP_URL`, `NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL`, `NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL`
 
-```
+- Defines routes that re-direct user after login/sign-up
+- `NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in` Defines where you specified the sign-in page for your project, project sign in is `app/(auth)/(routes)/sign-in`
+- `NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up` Defines where you specified the signup page for your project, project sign in is `app/(auth)/(routes)/sign-up`
+- `NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/`, `NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/` Defines where you want to be re-directed to after logging in / signing up
+
+`NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`
+
+- Name of Cloudinary bucket
+
+`NEXT_PUBLIC_CLOUDINARY_API_KEY`
+
+- API Key from Cloudinary as this project uses it to store images
+
+`CLOUDINARY_API_SECRET`
+
+- Secret Key from Cloudinary
+
+`STRIPE_API_KEY`
+
+- API Key from Stripe used to handle purchases
+
+`STRIPE_WEBHOOK_SECRET`
+
+- Webhook secret as we use stripe to handle purchases
+
+`DATABASE_URL`
+
+- Database for the URL
+- Project uses Neon for the database, update to suit your methods
 
 After, run the development server:
 
